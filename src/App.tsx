@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef, useState } from 'react';
+import Colors from './components/Colors';
+import Container from './components/Container';
+import Header from './components/Header';
+import { ColorContext } from './contexts/ColorContext';
 
 function App() {
+  const container = useRef<HTMLDivElement>(null)
+  const [color, setColor] = useState<[number, number, number]>([Math.random(), 1, 1,])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className="app">
+      <Container innerRef={container} className='app__container'>
+        <ColorContext.Provider value={{ color, setColor }}>
+          <Header></Header>
+          <Colors></Colors>
+        </ColorContext.Provider>
+      </Container>
     </div>
   );
 }
-
 export default App;

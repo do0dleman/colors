@@ -1,0 +1,21 @@
+.app {
+    height: 100%;
+  
+    &__container {
+      margin: 0;
+      height: 100%;
+      text-align: center;
+      position: relative;
+    }
+  
+    &__generate {
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      span {
+        font-size: 40px;
+      }
+    }
+  }
