@@ -2,7 +2,7 @@
  * Converts hsv color value to rgb color value
  * @param {[number, number, number]} hsv HSV color value, where hue is normalized
  * @param {boolean} normalizeRGB         if true returns normalized rgb value
- * @returns {[number, number, number]}   RGB color value
+ * @returns RGB color value
 **/
 
 export default function HSVtoRGB(hsv: [number, number, number], normalizeRGB: boolean = false): [number, number, number] {

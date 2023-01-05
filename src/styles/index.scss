@@ -7,14 +7,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 html, body, #root {
-  height: 100%;
+  height: 100vh;
+  // overflow-y: hidden;
+  overflow: hidden;
+  @media (max-width: 767px) {
+    overflow: visible;
+}
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.color-controls__wrapper {
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 767px) {
+    flex-direction: column-reverse;
+  }
+}
 @import './app.scss';
 @import './colors.scss';
 @import './header.scss';
+@import './controls.scss';

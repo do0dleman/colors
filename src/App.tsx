@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import Colors from './components/Colors';
 import Container from './components/Container';
+import Controls from './components/Controls';
 import Header from './components/Header';
 import { ColorContext } from './contexts/ColorContext';
 
@@ -13,7 +14,10 @@ function App() {
       <Container innerRef={container} className='app__container'>
         <ColorContext.Provider value={{ color, setColor }}>
           <Header></Header>
-          <Colors></Colors>
+          <div className="color-controls__wrapper">
+            <Controls></Controls>
+            <Colors></Colors>
+          </div>
         </ColorContext.Provider>
       </Container>
     </div>

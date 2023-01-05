@@ -7,7 +7,7 @@
  */
 
 export default function generateColorShade(hsv: [number, number, number], step: number, mode: number): [number, number, number] {
-    let color: [number, number, number] = [1, 1, 1]
+    let color: [number, number, number] = hsv
     if (mode === 0) {
         color = [hsv[0], 1, Math.max(1 - step, 0)]
     }

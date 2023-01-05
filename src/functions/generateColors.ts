@@ -2,6 +2,7 @@ import generateAnalogColors from "./generateAnalogColors"
 import generateColorsByFunction from "./generateColorsByFunction"
 import generateColorShades from "./generateColorShades"
 import generateTetrColors from "./generateTetrColors"
+import generateTriadColors from "./generateTriadColors"
 
 /**
  * Generates random colors
@@ -9,17 +10,25 @@ import generateTetrColors from "./generateTetrColors"
  * @returns 5 generated colors
  */
 export default function generateColors(hsv: [number, number, number]): [number, number, number][] {
-    const rnd = Math.round(Math.random() * 2)
+    let rnd = Math.round(Math.random() * 3.49)
+    // rnd = 3
     let colors: [number, number, number][] = []
 
+
     if (rnd === 0) {
-        colors = generateColorShades(hsv, (Math.random() + 2) / 10, Math.round(Math.random()))
+        const mode = Math.round(Math.random())
+        let off = (Math.random() + 1.5) / 10
+        if (mode === 2) off = (Math.random() + 2.5) / 10
+        colors = generateColorShades(hsv, off, mode)
     }
     if (rnd === 1) {
-        colors = generateColorsByFunction(hsv, generateAnalogColors, (Math.random() + 1.5) / 10, false)
+        colors = generateColorsByFunction(hsv, generateAnalogColors, (Math.random() + 1.5) / 10, true)
     }
     if (rnd === 2) {
-        colors = generateColorsByFunction(hsv, generateTetrColors, (Math.random() + 0.25) / 10, false)
+        colors = generateColorsByFunction(hsv, generateTetrColors, (Math.random() + 0.25) / 10, true)
+    }
+    if (rnd === 3) {
+        colors = generateColorsByFunction(hsv, generateTriadColors, (Math.random() * 1.5 + 2) / 10, true)
     }
 
     return colors

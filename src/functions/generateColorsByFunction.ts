@@ -6,7 +6,7 @@ import generateColorShade from "./generateColorShade"
  * @param colorGenFunction function to generate "parent" colors
  * @param step step used in generation function
  * @param doSortByHue if true colors will be sorted by their hue value
- * @returns colors
+ * @returns 5 generated colors
  */
 
 export default function generateColorsByFunction(hsv: [number, number, number], colorGenFunction: Function, step: number, doSortByHue: boolean = false) {
