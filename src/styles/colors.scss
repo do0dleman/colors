@@ -24,6 +24,7 @@
     }
     &__code {
       font-weight: 500;
+      white-space: nowrap;
       position: absolute;
       z-index: 2;
       margin: 0;
