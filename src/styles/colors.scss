@@ -33,13 +33,15 @@
       bottom: 80px;
       left: 50%;
       transform: translate(-50%, 0);
+      @media (max-width: 767px) {
+        bottom: 40%;
+      }
       &:nth-child(2) {
         font-size: 18px;
         bottom: 55px;
-      }
-      @media (max-width: 767px) {
-        position:initial;
-        transform: translate(0, 0);
+        @media (max-width: 767px) {
+          bottom: 24%;
+        }
       }
     }
     &__code-black {
