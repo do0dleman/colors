@@ -23,12 +23,12 @@
       }
     }
     &__code {
+      font-weight: 500;
       position: absolute;
       z-index: 2;
       margin: 0;
       font-size: 32px;
       color: white;
-      text-shadow: 1.4px 1.4px 2px #000;
       bottom: 80px;
       left: 50%;
       transform: translate(-50%, 0);
@@ -40,5 +40,8 @@
         position:initial;
         transform: translate(0, 0);
       }
+    }
+    &__code-black {
+      color: #000;
     }
   }

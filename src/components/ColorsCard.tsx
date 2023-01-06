@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import HSVtoHSL from "../functions/HSVtoHSL";
 import RGBtoHEX from "../functions/RGBtoHEX";
 import RGBtoString from "../functions/RGBtoString";
 
@@ -10,12 +11,18 @@ interface IColorCardProps {
 export default function ColorsCard(props: IColorCardProps) {
     const card = useRef<HTMLDivElement>(null)
     const [hex, setHex] = useState<String>(RGBtoHEX(props.colorRGB))
-    const [hsv, setHsv] = useState<Array<number>>(props.colorHSV)
     const [colorName, setColorName] = useState<String>('')
+    const [colorsText, setColorsText] = useState<string>('colors__code')
+
     useEffect(() => {
         card.current!.style.backgroundColor = RGBtoString(props.colorRGB);
         setHex(RGBtoHEX(props.colorRGB))
-        setHsv(props.colorHSV.map((item) => Math.round(item * 100) / 100))
+        const hsl: [number, number, number] = HSVtoHSL(props.colorHSV)
+        if (hsl[2] < 0.45) {
+            setColorsText('colors__code')
+        } else {
+            setColorsText('colors__code colors__code-black')
+        }
 
         fetch(`https://api.color.pizza/v1/?values=${hex}`)
             .then((res) => {
@@ -34,8 +41,8 @@ export default function ColorsCard(props: IColorCardProps) {
                 <p className="colors__code">{`#${hex}`}</p>
                 <p className="colors__code">{colorName}</p>
             </div> */}
-            <p className="colors__code">{`#${hex}`}</p>
-            <p className="colors__code">{colorName}</p>
+            <p className={colorsText}>{`#${hex}`}</p>
+            <p className={colorsText}>{colorName}</p>
         </div>
     )
 }
