@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/colors/static/css/main.f4451309.css",
+    "main.js": "/colors/static/js/main.d90fd418.js",
+    "static/media/redo-svgrepo-com.svg": "/colors/static/media/redo-svgrepo-com.467fb33107768c8812c807950ed2d469.svg",
+    "index.html": "/colors/index.html",
+    "static/media/undo-svgrepo-com.svg": "/colors/static/media/undo-svgrepo-com.c338196cf06ae272cd1664006d7b087f.svg",
+    "main.f4451309.css.map": "/colors/static/css/main.f4451309.css.map",
+    "main.d90fd418.js.map": "/colors/static/js/main.d90fd418.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f4451309.css",
+    "static/js/main.d90fd418.js"
+  ]
+}
