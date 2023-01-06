@@ -1,6 +1,8 @@
 import { ColorContext } from "../contexts/ColorContext";
 import { useContext } from "react"
 import Container from "./Container";
+import undoSVG from "../svgs/undo-svgrepo-com.svg"
+import redoSVG from "../svgs/redo-svgrepo-com.svg"
 
 export default function Controls() {
     const colorContext = useContext(ColorContext)
@@ -18,8 +20,12 @@ export default function Controls() {
         <section className="controls">
             <Container className={`controls__container`}>
                 <div className="controls__button-section">
-                    <button className="controls__button controls__undo" onClick={HandleUndoClick}>undo</button>
-                    <button className="controls__button controls__redo" onClick={HandleRedoClick}>redo</button>
+                    <button className="controls__button controls__undo" onClick={HandleUndoClick}>
+                        <img src={undoSVG} alt="undoSVG" />
+                    </button>
+                    <button className="controls__button controls__redo" onClick={HandleRedoClick}>
+                        <img src={redoSVG} alt="redoSVG" />
+                    </button>
                 </div>
                 <div className="controls__button-section">
                     <button

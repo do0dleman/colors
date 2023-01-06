@@ -88,9 +88,16 @@
         font-size: 20px;
         margin-right: 10px;
         background-color: #fff;
+        padding: 2px 4px;
         cursor: pointer;
+        img {
+            width: 20px
+        }
         @media (max-width: 767px) {
             font-size: 24px;
+            img {
+                width: 24px
+            }
         }
         &:hover {
             background-color: rgba(0, 0, 0, 0.1);
