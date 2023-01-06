@@ -13,11 +13,11 @@
         padding: 0 60px;
         @media (max-width: 767px) {
             padding: 0 20px;
+            justify-content: space-between;
         }
     }
     &__button-section {
         position: relative;
-        margin-left: 20px;
     }
     &__button {
         font-size: 20px;
@@ -42,6 +42,10 @@
         }
     }
     &__generate-button {
+        margin-left: 20px;
+        @media (max-width: 767px) {
+            margin: 0;
+        }
         &:hover + .controls__button-hint {
             opacity: 1;
             transition-delay: 1s;

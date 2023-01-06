@@ -17,8 +17,10 @@ export default function Controls() {
     return (
         <section className="controls">
             <Container className={`controls__container`}>
-                <button className="controls__button controls__undo" onClick={HandleUndoClick}>undo</button>
-                <button className="controls__button controls__redo" onClick={HandleRedoClick}>redo</button>
+                <div className="controls__button-section">
+                    <button className="controls__button controls__undo" onClick={HandleUndoClick}>undo</button>
+                    <button className="controls__button controls__redo" onClick={HandleRedoClick}>redo</button>
+                </div>
                 <div className="controls__button-section">
                     <button
                         className="controls__button controls__generate-button"
