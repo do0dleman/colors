@@ -37,12 +37,11 @@ export default function ColorsCard(props: IColorCardProps) {
     }, [])
     return (
         <div ref={card} className="colors__card">
-            {/* <div className="colors__code-wrapper">
-                <p className="colors__code">{`#${hex}`}</p>
-                <p className="colors__code">{colorName}</p>
-            </div> */}
             <p className={colorsText}>{`#${hex}`}</p>
             <p className={colorsText}>{colorName}</p>
+            {/* <p className={colorsText}>{`hsv(${Math.round(props.colorHSV[0] * 100) / 100}, 
+            ${Math.round(props.colorHSV[1] * 100) / 100}, 
+            ${Math.round(props.colorHSV[2] * 100) / 100})`}</p> */}
         </div>
     )
 }

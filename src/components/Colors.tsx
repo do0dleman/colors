@@ -1,20 +1,17 @@
-import { KeyboardEvent, ReactNode, useContext, useEffect, useState } from "react";
+import { ReactNode, useContext, useEffect, useState } from "react";
 import { ColorContext } from "../contexts/ColorContext";
-import generateAnalogColors from "../functions/generateAnalogColors";
 import generateColors from "../functions/generateColors";
-import generateColorShade from "../functions/generateColorShade";
-import generateColorShades from "../functions/generateColorShades";
-import generateTetrColors from "../functions/generateTetrColors";
 import HSVtoRGB from "../functions/HSVtoRGB";
-import RGBtoString from "../functions/RGBtoString";
 import ColorsCard from "./ColorsCard";
 import Container from "./Container";
 
 export default function Colors() {
     const colorContext = useContext(ColorContext)
     const [cards, setCards] = useState<ReactNode[]>()
+    const [prevColors, setPrevColors] = useState<[number, number, number][][]>([])
+    const [currentPosition, setCurrentPosition] = useState<number>(-1)
 
-    let colors: [number, number, number][] = generateColorShades([0, 0, 0], 0.15)
+    let colors: [number, number, number][];
 
     function HandleKeyDown(e: any): void {
         if (e.key === ' ') colorContext.setColor([Math.random(), 1, 1])
@@ -23,8 +20,23 @@ export default function Colors() {
         document.body.addEventListener('keyup', e => HandleKeyDown(e))
     }, [])
 
-    function updateColorCards() {
+    function HandleUndoColors() {
+        if (currentPosition !== prevColors.length - 1) {
+            setPrevColors((prevPrevColors) => {
+                for (let i = 0; i < (prevPrevColors.length - 1 - currentPosition); i++) {
+                    prevPrevColors.pop()
+                }
+                return prevPrevColors
+            })
+        }
+    }
+    function updateColors() {
         colors = generateColors(colorContext.color)
+        setPrevColors((prevPrevColors) => [
+            ...prevPrevColors, colors
+        ])
+        setCurrentPosition(currentPosition + 1)
+
 
         setCards(colors.map(item => {
             const rgb = HSVtoRGB(item)
@@ -33,7 +45,41 @@ export default function Colors() {
             )
         }))
     }
+    function updateColorCards() {
+        HandleUndoColors()
+        setTimeout(updateColors, 0)
+    }
+    function undoColors() {
+        if (currentPosition - 1 < 0) return
+
+        colors = prevColors[currentPosition - 1]
+        if (colors === undefined) return
+
+        setCurrentPosition(currentPosition - 1)
+        setCards(colors.map(item => {
+            const rgb = HSVtoRGB(item)
+            return (
+                <ColorsCard key={`${Math.random()}`} colorRGB={rgb} colorHSV={item} />
+            )
+        }))
+    }
+    function redoColors() {
+        if (prevColors.length <= currentPosition + 1) return
+
+        colors = prevColors[currentPosition + 1]
+        if (colors === undefined) return
+
+        setCurrentPosition(currentPosition + 1)
+        setCards(colors.map(item => {
+            const rgb = HSVtoRGB(item)
+            return (
+                <ColorsCard key={`${Math.random()}`} colorRGB={rgb} colorHSV={item} />
+            )
+        }))
+    }
     useEffect(updateColorCards, [colorContext.color])
+    useEffect(undoColors, [colorContext.doUndo])
+    useEffect(redoColors, [colorContext.doRedo])
 
     return (
         <section className="colors">
