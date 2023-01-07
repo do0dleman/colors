@@ -3,7 +3,7 @@
 .header {
     height: 48px;
     width: 100%;
-    z-index: 2;
+    z-index: 10;
     @media (max-width: 767px) {
         height: 64px;
     }
