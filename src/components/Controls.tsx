@@ -1,11 +1,12 @@
 import { ColorContext } from "../contexts/ColorContext";
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import Container from "./Container";
 import undoSVG from "../svgs/undo-svgrepo-com.svg"
 import redoSVG from "../svgs/redo-svgrepo-com.svg"
 
 export default function Controls() {
     const colorContext = useContext(ColorContext)
+
 
     function HandleButtonClick() {
         if (!colorContext.doNewColor) {
@@ -14,6 +15,13 @@ export default function Controls() {
         }
         colorContext.setColor([Math.random(), 1, 1])
     }
+    function HandleKeyDown(e: any): void {
+        if (e.key === ' ') HandleButtonClick()
+    }
+    useEffect(() => {
+        document.body.addEventListener('keyup', e => HandleKeyDown(e))
+    }, [])
+
     function HandleUndoClick() {
         colorContext.setDoUndo(!colorContext.doUndo)
     }

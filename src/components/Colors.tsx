@@ -13,13 +13,6 @@ export default function Colors() {
 
     let colors: [number, number, number][];
 
-    function HandleKeyDown(e: any): void {
-        if (e.key === ' ') colorContext.setColor([Math.random(), 1, 1])
-    }
-    useEffect(() => {
-        document.body.addEventListener('keyup', e => HandleKeyDown(e))
-    }, [])
-
     function HandleUndoColors() {
         if (currentPosition !== prevColors.length - 1) {
             setPrevColors((prevPrevColors) => {
