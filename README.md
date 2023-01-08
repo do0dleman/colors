@@ -4,7 +4,7 @@ This project was made to generate different color schemes from one "seed" color.
 
 ## Github pages 
 
-You can see and use the app on github pages [here](https://do0dleman.github.io/colors/)
+You can see and use the app on github pages [here](https://do0dleman.github.io/colors/).
 
 ## Generation methods
 
@@ -18,12 +18,11 @@ In first method only lightness is being changed.
 In three others methods hue is being changed.
 Then colors' value is being changed to make different shades.
 
-You can learn more about the methods [here](https://en.wikipedia.org/wiki/Color_scheme)
+You can learn more about the methods [here](https://en.wikipedia.org/wiki/Color_scheme).
 
 ## Upcoming updates
 
-Soon will be released ability to change "seed" color manualy 
-and to choose generation manualy.
+Soon will be released ability to choose generation method manualy.
 
 ## License
 
