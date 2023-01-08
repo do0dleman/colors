@@ -1,4 +1,5 @@
 import generateColorShade from "./generateColorShade"
+import shuffleArray from "./shuffleArray"
 
 /**
  * Creates colors of different shades based on colors from generation function
@@ -11,12 +12,15 @@ import generateColorShade from "./generateColorShade"
 
 export default function generateColorsByFunction(hsv: [number, number, number], colorGenFunction: Function, step: number, doSortByHue: boolean = false) {
     let colors: [number, number, number][] = colorGenFunction(hsv, step)
+    let indecies = [0, 1, 2, 3, 4]
+    if (!doSortByHue) indecies = shuffleArray(indecies)
+
     colors = [
-        generateColorShade(colors[0], (Math.random() + 6.5) / 10, 0),
-        generateColorShade(colors[1], (Math.random() + 3) / 10, 0),
-        generateColorShade(colors[2], Math.random() / 10, 0),
-        generateColorShade(colors[3], (Math.random() + 3.5) / 10, 1),
-        generateColorShade(colors[4], (Math.random() + 7.75) / 10, 1),
+        generateColorShade(colors[indecies[0]], (Math.random() + 6.5) / 10, 0),
+        generateColorShade(colors[indecies[1]], (Math.random() + 3) / 10, 0),
+        generateColorShade(colors[indecies[2]], Math.random() / 10, 0),
+        generateColorShade(colors[indecies[3]], (Math.random() + 3.5) / 10, 1),
+        generateColorShade(colors[indecies[4]], (Math.random() + 7.75) / 10, 1),
     ]
     if (doSortByHue) {
         colors.sort((a, b) => {
