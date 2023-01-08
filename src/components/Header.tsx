@@ -7,7 +7,7 @@ import Container from "./Container";
 
 export default function Header() {
     const colorContext = useContext(ColorContext)
-    const [showColorPicker, setShowColorPicker] = useState<boolean>(true)
+    const [showColorPicker, setShowColorPicker] = useState<boolean>(false)
 
     const logo = useRef<HTMLSpanElement>(null)
     useEffect(() => {
