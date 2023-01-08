@@ -1,22 +1,34 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { ColorContext } from "../contexts/ColorContext";
-import generateColorShade from "../functions/generateColorShade";
-import generateColorShades from "../functions/generateColorShades";
 import HSVtoRGB from "../functions/HSVtoRGB";
 import RGBtoString from "../functions/RGBtoString";
+import Colorpicker from "./Colorpicker";
 import Container from "./Container";
 
 export default function Header() {
     const colorContext = useContext(ColorContext)
+    const [showColorPicker, setShowColorPicker] = useState<boolean>(true)
+
     const logo = useRef<HTMLSpanElement>(null)
     useEffect(() => {
-        logo.current!.style.color = RGBtoString(HSVtoRGB(generateColorShade(colorContext.color, 0.2, 0)))
+        logo.current!.style.color = RGBtoString(HSVtoRGB(colorContext.color))
     }, [colorContext.color])
-
+    function HandleLogoClick() {
+        setShowColorPicker(true)
+    }
     return (
         <header className="header">
             <Container className={'header__container'}>
-                <span ref={logo} className="header__logo">Colors</span>
+                <span
+                    ref={logo}
+                    onClick={HandleLogoClick}
+                    className="header__logo">
+                    Colors
+                </span>
+                <Colorpicker
+                    logo={logo}
+                    showColorPicker={showColorPicker}
+                    setShowColorPicker={setShowColorPicker} />
             </Container>
         </header>
     )

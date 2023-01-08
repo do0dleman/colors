@@ -20,6 +20,7 @@
     }
     &__logo {
         font-size: 36px;
+        cursor: pointer;
         font-family: Pacifico;
         @media (max-width: 767px) {
             font-size: 42px;

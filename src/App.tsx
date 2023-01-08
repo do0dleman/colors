@@ -10,6 +10,7 @@ function App() {
   const [color, setColor] = useState<[number, number, number]>([Math.random(), 1, 1,])
   const [doUndo, setDoUndo] = useState<boolean>(false)
   const [doRedo, setDoRedo] = useState<boolean>(false)
+  const [doNewColor, setDoNewColor] = useState<boolean>(true)
 
   return (
 
@@ -22,7 +23,9 @@ function App() {
             doUndo,
             setDoUndo,
             doRedo,
-            setDoRedo
+            setDoRedo,
+            doNewColor,
+            setDoNewColor
           }}>
           <Header></Header>
           <div className="color-controls__wrapper">

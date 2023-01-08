@@ -8,6 +8,8 @@ interface IColorContext {
     setDoUndo: Function
     doRedo: boolean
     setDoRedo: Function
+    doNewColor: boolean
+    setDoNewColor: Function
 }
 
 export const ColorContext = createContext<IColorContext>({
@@ -17,4 +19,7 @@ export const ColorContext = createContext<IColorContext>({
     setDoUndo: () => { },
     doRedo: false,
     setDoRedo: () => { },
+    doNewColor: true,
+    setDoNewColor: () => { }
+
 }) 

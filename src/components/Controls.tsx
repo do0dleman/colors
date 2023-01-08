@@ -8,6 +8,10 @@ export default function Controls() {
     const colorContext = useContext(ColorContext)
 
     function HandleButtonClick() {
+        if (!colorContext.doNewColor) {
+            colorContext.setColor([colorContext.color[0] + Math.random() / 10000, 1, 1])
+            return
+        }
         colorContext.setColor([Math.random(), 1, 1])
     }
     function HandleUndoClick() {
