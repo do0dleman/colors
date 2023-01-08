@@ -19,8 +19,11 @@ export default function Controls() {
         if (e.key === ' ') HandleButtonClick()
     }
     useEffect(() => {
-        document.body.addEventListener('keyup', e => HandleKeyDown(e))
-    }, [])
+        document.body.addEventListener('keyup', HandleKeyDown)
+        return () => {
+            document.body.removeEventListener('keyup', HandleKeyDown)
+        }
+    }, [colorContext.doNewColor])
 
     function HandleUndoClick() {
         colorContext.setDoUndo(!colorContext.doUndo)
