@@ -29,6 +29,10 @@
         position: relative;
         cursor: pointer;
         transition: all 0.3s ease;
+        svg {
+            width: 25px;
+            height: 25px;
+        }
         @media (max-width: 767px) {
             font-size: 24px;
         }
@@ -82,35 +86,38 @@
             display: none;
         }
     }
-
-    &__undo, &__redo{
-        // width: 30px;
-        // height: 30px;
-        font-size: 20px;
-        margin-right: 10px;
-        background-color: #fff;
-        padding: 2px 4px;
-        cursor: pointer;
-        img {
-            width: 20px
-        }
-        @media (max-width: 767px) {
-            font-size: 24px;
-            img {
-                width: 24px
+    &__svg-button {
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        svg {
+            width: 30px;
+            height: 30px;
+            fill: #636363;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            @media (max-width: 767px) {
+                width: 35px;
+                height: 35px;
+                fill: black;
             }
         }
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-            @media(max-width: 767px) {
-                background-color: #fff;
-            }
+        &:not(last-child) {
+            margin-right: 12px;
         }
-        &:active {
-            background-color: rgba(0, 0, 0, 0.15);
-            @media(max-width: 767px) {
-                background-color: #fff;
-            }
+        &:first-child {
+            margin-left: 10px;
+        }
+        &:hover svg {
+            fill: black;
         }
     }
+    // &__undo, &__redo{
+    //     // width: 30px;
+    //     // height: 30px;
+    //     margin-right: 10px;
+    //     background-color: #fff;
+    //     // padding: 2px 4px;
+    //     cursor: pointer;
+    // }
 }
