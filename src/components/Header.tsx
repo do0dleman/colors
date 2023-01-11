@@ -26,7 +26,6 @@ export default function Header() {
                     Colors
                 </span>
                 <Colorpicker
-                    logo={logo}
                     showColorPicker={showColorPicker}
                     setShowColorPicker={setShowColorPicker} />
             </Container>

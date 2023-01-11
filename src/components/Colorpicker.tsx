@@ -7,7 +7,6 @@ import LockSVG from "./svgComponents/LockSVG"
 import UnlockSVG from "./svgComponents/UnlockSVG"
 
 interface IColorpickerProps {
-    logo: React.RefObject<HTMLSpanElement>
     showColorPicker: boolean
     setShowColorPicker: Function
 }
@@ -16,7 +15,6 @@ export default function Colorpicker(props: IColorpickerProps) {
     const hueRange = useRef<HTMLInputElement>(null)
 
     function HandleHueInputChange(e: React.FormEvent<HTMLInputElement>) {
-        props.logo.current!.style.color = RGBtoString(HSVtoRGB([+e.currentTarget.value, 1, 1]))
         hueRange.current!.style.setProperty('--thumbColor', RGBtoString(HSVtoRGB([+e.currentTarget.value, 1, 1])))
     }
     function HandleApplyButtonClick() {
