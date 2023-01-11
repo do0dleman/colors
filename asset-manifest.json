@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/colors/static/css/main.94155661.css",
-    "main.js": "/colors/static/js/main.99cc3ab1.js",
-    "static/media/redo-svgrepo-com.svg": "/colors/static/media/redo-svgrepo-com.467fb33107768c8812c807950ed2d469.svg",
+    "main.css": "/colors/static/css/main.652ac8f4.css",
+    "main.js": "/colors/static/js/main.c323e47e.js",
     "index.html": "/colors/index.html",
-    "static/media/undo-svgrepo-com.svg": "/colors/static/media/undo-svgrepo-com.c338196cf06ae272cd1664006d7b087f.svg",
-    "main.94155661.css.map": "/colors/static/css/main.94155661.css.map",
-    "main.99cc3ab1.js.map": "/colors/static/js/main.99cc3ab1.js.map"
+    "main.652ac8f4.css.map": "/colors/static/css/main.652ac8f4.css.map",
+    "main.c323e47e.js.map": "/colors/static/js/main.c323e47e.js.map"
   },
   "entrypoints": [
-    "static/css/main.94155661.css",
-    "static/js/main.99cc3ab1.js"
+    "static/css/main.652ac8f4.css",
+    "static/js/main.c323e47e.js"
   ]
 }
