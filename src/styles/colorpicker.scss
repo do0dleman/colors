@@ -115,7 +115,7 @@
         padding: 0;
         background-color: transparent;
         border: none;
-        margin-right: 10px;
+        margin: 0;
         svg {
             height: 25px;
             width: 25px;
@@ -129,21 +129,6 @@
         &:hover svg {
             fill: #000;
             transition: all 0.3s ease;
-        }
-    }
-    &__button {
-        background-color: transparent;
-        border: 1px solid rgb(167, 165, 165);
-        border-radius: 4px;
-        font-size: 16px;
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
-        &:active {
-            background-color: rgba(0, 0, 0, 0.15);
-        }
-        @media (max-width: 767px) {
-            font-size: 20px;
         }
     }
 }

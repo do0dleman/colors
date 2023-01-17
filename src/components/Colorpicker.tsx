@@ -17,13 +17,14 @@ export default function Colorpicker(props: IColorpickerProps) {
     function HandleHueInputChange(e: React.FormEvent<HTMLInputElement>) {
         hueRange.current!.style.setProperty('--thumbColor', RGBtoString(HSVtoRGB([+e.currentTarget.value, 1, 1])))
     }
-    function HandleApplyButtonClick() {
-        colorContext.setColor([+hueRange.current!.value, 1, 1])
-    }
     function HandleCloseButtonClick() {
         props.setShowColorPicker(false)
     }
     function HandleLockClick() {
+        if (colorContext.color[0] !== +hueRange.current!.value
+            && colorContext.doNewColor === true) {
+            colorContext.setColor([+hueRange.current!.value, 1, 1])
+        }
         colorContext.setDoNewColor(!colorContext.doNewColor)
     }
     useEffect(() => {
@@ -56,13 +57,9 @@ export default function Colorpicker(props: IColorpickerProps) {
                                 step={0.01}
                                 ref={hueRange}
                                 onChange={HandleHueInputChange} />
-                            <button className="color-picker__lock" onClick={HandleLockClick}>
+                            <button className="color-picker__lock"
+                                onClick={HandleLockClick}>
                                 {colorContext.doNewColor ? <UnlockSVG /> : <LockSVG />}
-                            </button>
-                            <button
-                                className="color-picker__button"
-                                onClick={HandleApplyButtonClick}>
-                                Set
                             </button>
                         </div>
                     </section>
