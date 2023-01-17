@@ -23,6 +23,7 @@
       }
     }
     &__code {
+      transition: all 0.25s ease-in;
       font-family: arial;
       font-weight: 500;
       white-space: nowrap;
