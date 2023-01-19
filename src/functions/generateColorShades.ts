@@ -10,6 +10,7 @@ import generateColorShade from "./generateColorShade"
 
 export default function generateColorShades(hsv: [number, number, number], step: number, mode: number = 2): [number, number, number][] {
     const colors: [number, number, number][] = []
+    const doRandom = Math.random() > 0.2
     if (mode === 0) {
         for (let i = 0; i < 5; i++) {
             colors.push(generateColorShade(hsv, step * i, 0))
@@ -25,7 +26,7 @@ export default function generateColorShades(hsv: [number, number, number], step:
             colors.push(generateColorShade(hsv, step * 2 / (i + 1), 0))
         }
         for (let i = 0; i < 3; i++) {
-            colors.push(generateColorShade(hsv, step * i, 1))
+            colors.push(generateColorShade(hsv, step * i, 1, doRandom))
         }
     }
     return colors
