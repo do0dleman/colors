@@ -11,12 +11,12 @@ import generateTriadColors from "./generateTriadColors"
  */
 export default function generateColors(hsv: [number, number, number]): [number, number, number][] {
     let rnd = Math.round(Math.random() * 3.49)
-    // rnd = 3
     let colors: [number, number, number][] = []
     const doSort = Math.random() > 0.5
 
     if (rnd === 0) {
-        const mode = Math.round(Math.random())
+        const mode = Math.round(Math.random() * 2)
+        console.log(mode)
         let off = (Math.random() + 1.5) / 10
         if (mode === 2) off = (Math.random() + 2.5) / 10
         colors = generateColorShades(hsv, off, mode)
