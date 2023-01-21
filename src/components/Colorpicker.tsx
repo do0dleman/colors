@@ -53,7 +53,7 @@ export default function Colorpicker(props: IColorpickerProps) {
                             <input type="range" name="hue"
                                 className="color-picker__hue-range"
                                 min={0}
-                                max={1}
+                                max={0.99}
                                 step={0.01}
                                 ref={hueRange}
                                 onChange={HandleHueInputChange} />
