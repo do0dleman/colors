@@ -1,5 +1,5 @@
 const genMethodList: string[] = [
-    'random',
+    'Random',
     'Color Shades',
     'Analog Colors',
     'Tetraidic colors',
