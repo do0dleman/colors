@@ -33,6 +33,7 @@ export default function GenMethods(props: IGenMethodsProps) {
                             <span></span><span></span>
                         </button>
                     </header>
+                    <h2 className="genmethods__title modal__title">Choose generation method</h2>
                     <section className="genmethods__section modal__section">
                         <div className="genmethods__list">
                             {genMethods}

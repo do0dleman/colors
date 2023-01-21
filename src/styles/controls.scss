@@ -99,7 +99,6 @@
             @media (max-width: 767px) {
                 width: 35px;
                 height: 35px;
-                fill: black;
             }
         }
         &:not(last-child) {
@@ -110,6 +109,9 @@
         }
         &:hover svg {
             fill: black;
+            @media (max-width: 767px) {
+                fill: #636363;
+            }
         }
     }
 }
