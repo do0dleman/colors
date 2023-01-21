@@ -1,6 +1,5 @@
 import { createContext } from "react"
 
-
 interface IColorContext {
     color: [number, number, number]
     setColor: Function
@@ -10,6 +9,8 @@ interface IColorContext {
     setDoRedo: Function
     doNewColor: boolean
     setDoNewColor: Function
+    genMethod: number
+    setGenMethod: Function
 }
 
 export const ColorContext = createContext<IColorContext>({
@@ -20,6 +21,7 @@ export const ColorContext = createContext<IColorContext>({
     doRedo: false,
     setDoRedo: () => { },
     doNewColor: true,
-    setDoNewColor: () => { }
-
+    setDoNewColor: () => { },
+    genMethod: -1,
+    setGenMethod: () => { }
 }) 

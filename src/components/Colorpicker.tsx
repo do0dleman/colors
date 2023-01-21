@@ -38,18 +38,18 @@ export default function Colorpicker(props: IColorpickerProps) {
     return (
         <div className={`header__color-picker color-picker 
                 ${props.showColorPicker ? 'color-picker-active' : ''}`}>
-            <div className="color-picker__wrapper">
-                <Container className={'color-picker__container'}>
-                    <header className="color-picker__header">
+            <div className="color-picker__wrapper modal__wrapper">
+                <Container className={'color-picker__container modal__container'}>
+                    <header className="color-picker__header modal__header">
                         <button
-                            className="color-picker__close-button"
+                            className="color-picker__close-button modal__close-button"
                             onClick={HandleCloseButtonClick}>
                             <span></span><span></span>
                         </button>
                     </header>
-                    <section className="color-picker__section">
-                        <h2 className="color-picker__title">Hue of seed color</h2>
-                        <div className="color-picker__block">
+                    <section className="color-picker__section modal__section">
+                        <h2 className="color-picker__title modal__title">Hue of seed color</h2>
+                        <div className="color-picker__block modal__block">
                             <input type="range" name="hue"
                                 className="color-picker__hue-range"
                                 min={0}

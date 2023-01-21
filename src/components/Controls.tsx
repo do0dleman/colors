@@ -1,15 +1,15 @@
 import { ColorContext } from "../contexts/ColorContext";
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import Container from "./Container";
-import undoSVG from "../svgs/undo-svgrepo-com.svg"
-import redoSVG from "../svgs/redo-svgrepo-com.svg"
 import UndoSVG from "./svgComponents/UndoSVG";
 import RedoSVG from "./svgComponents/RedoSVG";
-import LockSVG from "./svgComponents/LockSVG";
+import GenSVG from "./svgComponents/GenSVG";
+import GenMethods from "./GenMethods";
 
 export default function Controls() {
     const colorContext = useContext(ColorContext)
 
+    const [showGenMethod, setShowGenMethod] = useState(false)
 
     function HandleButtonClick() {
         if (!colorContext.doNewColor) {
@@ -34,17 +34,25 @@ export default function Controls() {
     function HandleRedoClick() {
         colorContext.setDoRedo(!colorContext.doRedo)
     }
+    function HandleGenMethodClick() {
+        setShowGenMethod(!showGenMethod)
+    }
     return (
         <section className="controls">
             <Container className={`controls__container`}>
                 <div className="controls__button-section">
                     <button className="controls__svg-button controls__undo" onClick={HandleUndoClick}>
-                        {/* <img src={undoSVG} alt="undoSVG" /> */}
                         <UndoSVG />
                     </button>
                     <button className="controls__svg-button controls__redo" onClick={HandleRedoClick}>
                         <RedoSVG />
                     </button>
+                </div>
+                <div className="controls__button-section">
+                    <button className="controls__svg-button" onClick={HandleGenMethodClick}>
+                        <GenSVG></GenSVG>
+                    </button>
+                    {showGenMethod ? <GenMethods setShowGenMethod={setShowGenMethod} /> : <></>}
                 </div>
                 <div className="controls__button-section">
                     <button

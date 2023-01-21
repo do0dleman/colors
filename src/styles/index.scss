@@ -57,8 +57,10 @@ code {
     flex-direction: column-reverse;
   }
 }
+@import './modal.scss';
 @import './app.scss';
 @import './colors.scss';
 @import './header.scss';
 @import './controls.scss';
-@import './colorpicker.scss'
+@import './colorpicker.scss';
+@import './genmethod.scss';

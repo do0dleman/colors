@@ -11,6 +11,7 @@ function App() {
   const [doUndo, setDoUndo] = useState<boolean>(false)
   const [doRedo, setDoRedo] = useState<boolean>(false)
   const [doNewColor, setDoNewColor] = useState<boolean>(true)
+  const [genMethod, setGenMethod] = useState<number>(-1)
 
   return (
 
@@ -25,7 +26,9 @@ function App() {
             doRedo,
             setDoRedo,
             doNewColor,
-            setDoNewColor
+            setDoNewColor,
+            genMethod,
+            setGenMethod
           }}>
           <Header></Header>
           <div className="color-controls__wrapper">

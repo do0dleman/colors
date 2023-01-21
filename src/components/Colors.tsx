@@ -24,7 +24,7 @@ export default function Colors() {
         }
     }
     function updateColors() {
-        colors = generateColors(colorContext.color)
+        colors = generateColors(colorContext.color, colorContext.genMethod)
         setPrevColors((prevPrevColors) => [
             ...prevPrevColors, colors
         ])
