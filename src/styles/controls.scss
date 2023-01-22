@@ -21,6 +21,7 @@
         position: relative;
     }
     &__generate-button {
+        background-color: #fff;
         margin-left: 20px;
         font-size: 16px;
         height: 30px;
@@ -34,19 +35,23 @@
         color: #636363;
         font: arial;
         @media (max-width: 767px) {
-            font-size: 20px;
+            font-size: 16px;
+            height: 30px;
         }
         &:hover {
             background-color: #fff;
             border-color: #000;
             color: #000;
             @media (max-width: 767px) {
-                border-color: #000;
+                border-color: #636363;
                 color: #636363;
             }
         }
         &:active {
             background-color: rgba(0, 0, 0, 0.15);
+            @media (max-width: 767px) {
+                background-color: #fff;
+            }
         }
         @media (max-width: 767px) {
             margin: 0;
