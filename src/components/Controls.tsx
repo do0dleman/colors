@@ -5,9 +5,6 @@ import UndoSVG from "./svgComponents/UndoSVG";
 import RedoSVG from "./svgComponents/RedoSVG";
 import GenSVG from "./svgComponents/GenSVG";
 import GenMethods from "./GenMethods";
-import HSVtoRGB from "../functions/HSVtoRGB";
-import RGBtoString from "../functions/RGBtoString";
-import generateColorShade from "../functions/generateColorShade";
 
 export default function Controls() {
     const colorContext = useContext(ColorContext)
@@ -37,10 +34,6 @@ export default function Controls() {
             document.body.removeEventListener('keyup', HandleKeyDown)
         }
     }, [colorContext.doNewColor])
-    useEffect(() => {
-        const genButtonColor = RGBtoString(HSVtoRGB(generateColorShade(colorContext.color, 0.2, 0, true)))
-        generateButton.current!.style.backgroundColor = genButtonColor
-    }, [colorContext.color])
 
     function HandleUndoClick() {
         colorContext.setDoUndo(!colorContext.doUndo)
