@@ -47,8 +47,10 @@ export default function ColorsCard(props: IColorCardProps) {
     }
     return (
         <div ref={card} className="colors__card">
-            <p className={colorsText} onClick={copyHexToClipboard}>{`#${hex}`}</p>
-            <p className={colorsText}>{colorName}</p>
+            <div className="colors__info">
+                <p className={colorsText} onClick={copyHexToClipboard}>{`#${hex}`}</p>
+                <p className={colorsText}>{colorName}</p>
+            </div>
             <div className={
                 `colors__hex-notification ${showHexNot ?
                     'colors__hex-notification-active' : 'colors__hex-notification-inactive'}`

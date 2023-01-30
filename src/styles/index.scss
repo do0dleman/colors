@@ -50,13 +50,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.color-controls__wrapper {
-  display: flex;
-  flex-direction: column;
-  @media (max-width: 767px) {
-    flex-direction: column-reverse;
-  }
-}
 @import './modal.scss';
 @import './app.scss';
 @import './colors.scss';

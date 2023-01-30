@@ -31,7 +31,7 @@ function App() {
             setGenMethod
           }}>
           <Header></Header>
-          <div className="color-controls__wrapper">
+          <div className="controls__wrapper">
             <Controls></Controls>
             <Colors></Colors>
           </div>
