@@ -20,10 +20,6 @@ Then colors' value is being changed to make different shades.
 
 You can learn more about the methods [here](https://en.wikipedia.org/wiki/Color_scheme).
 
-## Upcoming updates
-
-Soon will be released ability to choose generation method manualy.
-
 ## License
 
 See the [LICENSE](https://github.com/do0dleman/colors/blob/master/LICENSE.md) file for license rights and limitations (MIT).
