@@ -1,18 +1,23 @@
 .modal {
+    display: none;
     &__wrapper {
         width: 100vw;
         height: 100vh;
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.0);
         position: fixed;
         top: 0;
         left: 0;
         z-index: 25;
     }
+    &__wrapper-active {
+        animation: wrapper 0.3s ease .01s forwards;
+    }
     &__container {
         position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -10%);
+        opacity: 0;
         width: 430px;
         height: fit-content;
         background-color: #fff;
@@ -23,6 +28,9 @@
         @media (max-width: 767px) {
             width: 300px;
         }
+    }
+    &__container-active {
+        animation: container 0.3s ease .01s forwards;
     }
     &__section {
         &:not(:last-child) {
@@ -70,5 +78,27 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+}
+.modal-active {
+    display: block;
+}
+
+@keyframes wrapper {
+    0% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+@keyframes container {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
     }
 }

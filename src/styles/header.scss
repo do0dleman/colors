@@ -22,6 +22,7 @@
         font-size: 36px;
         cursor: pointer;
         font-family: Pacifico;
+        user-select: none;
         @media (max-width: 767px) {
             font-size: 42px;
         }

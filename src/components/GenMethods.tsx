@@ -4,6 +4,7 @@ import Container from './Container'
 import { useContext } from "react"
 
 interface IGenMethodsProps {
+    showGenMethod: boolean
     setShowGenMethod: Function
 }
 export default function GenMethods(props: IGenMethodsProps) {
@@ -19,13 +20,17 @@ export default function GenMethods(props: IGenMethodsProps) {
         }
         return <button className={className} onClick={changeMethod} key={item}>{item}</button>
     })
+
     function HandleCloseButtonClick() {
         props.setShowGenMethod(false)
     }
     return (
-        <section className="genmethods modal">
-            <div className="genmethods__wrapper modal__wrapper">
-                <Container className="genmethods__container modal__container">
+        <section className={`genmethods modal 
+            ${props.showGenMethod ? 'modal-active' : ''}`}>
+            <div className={`genmethods__wrapper modal__wrapper 
+                ${props.showGenMethod ? 'modal__wrapper-active' : ''}`}>
+                <Container className={`genmethods__container modal__container
+                    ${props.showGenMethod ? 'modal__container-active' : ''}`}>
                     <header className="genmethods__header modal__header">
                         <button
                             className="genmethods__close-button modal__close-button"

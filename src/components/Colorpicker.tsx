@@ -14,6 +14,13 @@ export default function Colorpicker(props: IColorpickerProps) {
     const colorContext = useContext(ColorContext)
     const hueRange = useRef<HTMLInputElement>(null)
 
+    const sectionClasses = [
+        'header__color-picker',
+        'color-picker',
+        'modal',
+        props.showColorPicker ? 'modal-active' : ''
+    ]
+
     function HandleHueInputChange(e: React.FormEvent<HTMLInputElement>) {
         hueRange.current!.style.setProperty('--thumbColor', RGBtoString(HSVtoRGB([+e.currentTarget.value, 1, 1])))
     }
@@ -36,10 +43,11 @@ export default function Colorpicker(props: IColorpickerProps) {
         hueRange.current!.style.setProperty('--thumbColor', RGBtoString(HSVtoRGB(colorContext.color)))
     }, [])
     return (
-        <div className={`header__color-picker color-picker 
-                ${props.showColorPicker ? 'color-picker-active' : ''}`}>
-            <div className="color-picker__wrapper modal__wrapper">
-                <Container className={'color-picker__container modal__container'}>
+        <section className={sectionClasses.join(' ')}>
+            <div className={`color-picker__wrapper modal__wrapper
+                ${props.showColorPicker ? 'modal__wrapper-active' : ''}`}>
+                <Container className={`color-picker__container modal__container
+                    ${props.showColorPicker ? 'modal__container-active' : ''}`}>
                     <header className="color-picker__header modal__header">
                         <button
                             className="color-picker__close-button modal__close-button"
@@ -65,6 +73,6 @@ export default function Colorpicker(props: IColorpickerProps) {
                     </section>
                 </Container>
             </div>
-        </div>
+        </section>
     )
 }

@@ -1,5 +1,4 @@
 .color-picker {
-    display: none;
     
     &__hue-range {
         width: 300px !important; 
@@ -63,7 +62,4 @@
             transition: all 0.3s ease;
         }
     }
-}
-.color-picker-active {
-    display: block;
 }

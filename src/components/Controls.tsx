@@ -61,7 +61,7 @@ export default function Controls() {
                         onClick={HandleGenMethodClick}>
                         <GenSVG></GenSVG>
                     </button>
-                    {showGenMethod ? <GenMethods setShowGenMethod={setShowGenMethod} /> : <></>}
+                    <GenMethods setShowGenMethod={setShowGenMethod} showGenMethod={showGenMethod} />
                 </div>
                 <div className="controls__button-section">
                     <button
