@@ -1,7 +1,7 @@
 import { ColorContext } from '../contexts/ColorContext'
 import genMethodList from '../utils/genMethodList'
 import Container from './Container'
-import { useContext } from "react"
+import { useContext, useState } from "react"
 
 interface IGenMethodsProps {
     showGenMethod: boolean
@@ -21,12 +21,23 @@ export default function GenMethods(props: IGenMethodsProps) {
         return <button className={className} onClick={changeMethod} key={item}>{item}</button>
     })
 
+    const [doAnimation, setDoAnimation] = useState(false)
     function HandleCloseButtonClick() {
+        setDoAnimation(true)
         props.setShowGenMethod(false)
+        console.log(doAnimation)
+        setTimeout(() => {
+            setDoAnimation((anim) => !anim)
+            console.log(doAnimation)
+        }, 300)
     }
+    const sectionClasses = [
+        'genmethods',
+        'modal',
+        doAnimation || props.showGenMethod ? 'modal-active' : ''
+    ]
     return (
-        <section className={`genmethods modal 
-            ${props.showGenMethod ? 'modal-active' : ''}`}>
+        <section className={sectionClasses.join(' ')}>
             <div className={`genmethods__wrapper modal__wrapper 
                 ${props.showGenMethod ? 'modal__wrapper-active' : ''}`}>
                 <Container className={`genmethods__container modal__container

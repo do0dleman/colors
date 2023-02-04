@@ -14,25 +14,33 @@ export default function Colorpicker(props: IColorpickerProps) {
     const colorContext = useContext(ColorContext)
     const hueRange = useRef<HTMLInputElement>(null)
 
+
+    const [doAnimation, setDoAnimation] = useState(false)
+    function HandleCloseButtonClick() {
+        setDoAnimation(true)
+        props.setShowColorPicker(false)
+        console.log(doAnimation)
+        setTimeout(() => {
+            setDoAnimation((anim) => !anim)
+            console.log(doAnimation)
+        }, 300)
+    }
     const sectionClasses = [
         'header__color-picker',
         'color-picker',
         'modal',
-        props.showColorPicker ? 'modal-active' : ''
+        doAnimation || props.showColorPicker ? 'modal-active' : ''
     ]
 
-    function HandleHueInputChange(e: React.FormEvent<HTMLInputElement>) {
-        hueRange.current!.style.setProperty('--thumbColor', RGBtoString(HSVtoRGB([+e.currentTarget.value, 1, 1])))
-    }
-    function HandleCloseButtonClick() {
-        props.setShowColorPicker(false)
-    }
     function HandleLockClick() {
         if (colorContext.color[0] !== +hueRange.current!.value
             && colorContext.doNewColor === true) {
             colorContext.setColor([+hueRange.current!.value, 1, 1])
         }
         colorContext.setDoNewColor(!colorContext.doNewColor)
+    }
+    function HandleHueInputChange(e: React.FormEvent<HTMLInputElement>) {
+        hueRange.current!.style.setProperty('--thumbColor', RGBtoString(HSVtoRGB([+e.currentTarget.value, 1, 1])))
     }
     useEffect(() => {
         hueRange.current!.value = `${colorContext.color[0]}`
