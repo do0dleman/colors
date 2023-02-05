@@ -34,6 +34,7 @@
       justify-content: center;
       width: 100%;
       @media(max-width: 767px) or (orientation: portrait) {
+        width: 60%;
         bottom: 50%;
         transform: translate(0, 20%);
       }
@@ -49,7 +50,7 @@
       svg {
         width: 25px;
         height: 25px;
-        fill: rgb(44, 44, 44);
+        fill: rgba(0, 0, 0, 0.65);
       }
       &:hover {
         svg {
@@ -57,12 +58,31 @@
         }
       }
       transform: translate(-100%, -50%);
+      @media(max-width: 767px) or (orientation: portrait) {
+        transition: none !important;
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -o-transition: none !important;
+        bottom: 50%;
+        transform: translate(-100%, 50%);
+        left: initial;
+        right: 0px;
+        opacity: 1;
+        svg {
+          fill: rgb(0, 0, 0);
+        }
+      }
     }
     &__lock-white {
       svg {
-        fill: rgb(227, 227, 227);
+        fill: rgba(255, 255, 255, 0.65);
       }
       &:hover {
+        svg {
+          fill: #fff;
+        }
+      }
+      @media(max-width: 767px) or (orientation: portrait) {
         svg {
           fill: #fff;
         }
