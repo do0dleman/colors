@@ -13,7 +13,7 @@ export default function Controls() {
 
     const generateButton = useRef<HTMLButtonElement>(null);
     const genButtonClasses = [
-        'controls__svg-button',
+        'svg-button',
         'controls__gear-button',
         showGenMethod ? 'controls__gear-button-active' : ''
     ].join(' ')
@@ -48,10 +48,10 @@ export default function Controls() {
         <section className="controls">
             <Container className={`controls__container`}>
                 <div className="controls__button-section">
-                    <button className="controls__svg-button controls__undo" onClick={HandleUndoClick}>
+                    <button className="svg-button controls__undo" onClick={HandleUndoClick}>
                         <UndoSVG />
                     </button>
-                    <button className="controls__svg-button controls__redo" onClick={HandleRedoClick}>
+                    <button className="svg-button controls__redo" onClick={HandleRedoClick}>
                         <RedoSVG />
                     </button>
                 </div>

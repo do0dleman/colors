@@ -46,9 +46,33 @@ html, body, #root {
 }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.svg-button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  svg {
+      width: 30px;
+      height: 30px;
+      fill: #636363;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      @media (max-width: 767px) {
+          width: 35px;
+          height: 35px;
+      }
+  }
+  &:not(last-child) {
+      margin-right: 12px;
+  }
+  &:first-child {
+      margin-left: 10px;
+  }
+  &:hover svg {
+      fill: black;
+      @media (max-width: 767px) {
+          fill: #636363;
+      }
+  }
 }
 @import './modal.scss';
 @import './app.scss';

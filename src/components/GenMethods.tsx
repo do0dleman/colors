@@ -25,10 +25,8 @@ export default function GenMethods(props: IGenMethodsProps) {
     function HandleCloseButtonClick() {
         setDoAnimation(true)
         props.setShowGenMethod(false)
-        console.log(doAnimation)
         setTimeout(() => {
             setDoAnimation((anim) => !anim)
-            console.log(doAnimation)
         }, 300)
     }
     const sectionClasses = [

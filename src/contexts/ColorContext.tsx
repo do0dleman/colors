@@ -11,6 +11,8 @@ interface IColorContext {
     setDoNewColor: Function
     genMethod: number
     setGenMethod: Function
+    lockedColors: ([number, number, number] | null)[]
+    setLockedColors: Function
 }
 
 export const ColorContext = createContext<IColorContext>({
@@ -23,5 +25,7 @@ export const ColorContext = createContext<IColorContext>({
     doNewColor: true,
     setDoNewColor: () => { },
     genMethod: -1,
-    setGenMethod: () => { }
+    setGenMethod: () => { },
+    lockedColors: [null, null, null, null, null],
+    setLockedColors: () => { }
 }) 

@@ -25,16 +25,24 @@ export default function Colors() {
     }
     function updateColors() {
         colors = generateColors(colorContext.color, colorContext.genMethod)
-        setPrevColors((prevPrevColors) => [
-            ...prevPrevColors, colors
-        ])
+        for (let i in colorContext.lockedColors) {
+            if (colorContext.lockedColors[i]) {
+                colors[i] = colorContext.lockedColors[i]!
+            }
+        }
+        setPrevColors((prevPrevColors) => {
+            return [
+                ...prevPrevColors, colors
+            ]
+        })
         setCurrentPosition(currentPosition + 1)
 
-
+        let i = -1
         setCards(colors.map(item => {
             const rgb = HSVtoRGB(item)
+            i++
             return (
-                <ColorsCard key={`${Math.random()}`} colorRGB={rgb} colorHSV={item} />
+                <ColorsCard key={`${Math.random()}`} id={i} colorRGB={rgb} colorHSV={item} />
             )
         }))
     }
@@ -49,10 +57,12 @@ export default function Colors() {
         if (colors === undefined) return
 
         setCurrentPosition(currentPosition - 1)
+        let i = -1
         setCards(colors.map(item => {
             const rgb = HSVtoRGB(item)
+            i++
             return (
-                <ColorsCard key={`${Math.random()}`} colorRGB={rgb} colorHSV={item} />
+                <ColorsCard key={`${Math.random()}`} id={i} colorRGB={rgb} colorHSV={item} />
             )
         }))
     }
@@ -63,10 +73,11 @@ export default function Colors() {
         if (colors === undefined) return
 
         setCurrentPosition(currentPosition + 1)
+        let i = -1
         setCards(colors.map(item => {
             const rgb = HSVtoRGB(item)
             return (
-                <ColorsCard key={`${Math.random()}`} colorRGB={rgb} colorHSV={item} />
+                <ColorsCard key={`${Math.random()}`} id={i} colorRGB={rgb} colorHSV={item} />
             )
         }))
     }

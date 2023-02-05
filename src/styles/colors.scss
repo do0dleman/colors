@@ -21,6 +21,9 @@
         align-items: center;
         justify-content: center;
       }
+      &:hover > .colors__lock {
+        opacity: 1;
+      }
     }
     &__info {
       position: absolute;
@@ -33,6 +36,36 @@
       @media(max-width: 767px) or (orientation: portrait) {
         bottom: 50%;
         transform: translate(0, 20%);
+      }
+    }
+    &__lock {
+      opacity: 0;
+      transition: opacity 0.3s ease 0.1s;
+      position: absolute;
+      bottom: 120px;
+      left: 50%;
+      width: 25px;
+      height: 25px;
+      svg {
+        width: 25px;
+        height: 25px;
+        fill: rgb(44, 44, 44);
+      }
+      &:hover {
+        svg {
+          fill: rgb(0, 0, 0);
+        }
+      }
+      transform: translate(-100%, -50%);
+    }
+    &__lock-white {
+      svg {
+        fill: rgb(227, 227, 227);
+      }
+      &:hover {
+        svg {
+          fill: #fff;
+        }
       }
     }
     &__code {
