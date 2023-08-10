@@ -1,3 +1,7 @@
+**This Repository is Deprecated!**
+
+Development has been moved to the new repository, [hue-hub](https://github.com/do0dleman/hue-hub)! Please visit the new repository for the latest updates.
+
 # Color schemes generating web app on react
 
 This project was made to generate different color schemes from one "seed" color. 
